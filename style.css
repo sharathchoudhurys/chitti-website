@@ -133,36 +133,45 @@ nav a:hover{
   padding:80px 40px;
   text-align:center;
 }
-
-.review{
-  max-width:420px;
-  margin:20px auto;
-  padding:18px;
-  border:1px solid #eee;
-  border-radius:15px;
+.review-form {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+  margin: 30px auto;
 }
 
-form input,form textarea{
-  width:80%;
-  max-width:420px;
-  padding:12px;
-  margin:8px;
-  border-radius:12px;
-  border:1px solid #ccc;
+.review-form input {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
 }
 
-button{
-  padding:12px 30px;
-  border:none;
-  border-radius:30px;
-  background:black;
-  color:white;
-  cursor:pointer;
-  transition:.3s;
+.review-form textarea {
+  flex: 2;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  height: 45px;
+  resize: none;
 }
 
-button:hover{
-  transform:scale(1.05);
+.review-form button {
+  padding: 12px 22px;
+  border-radius: 25px;
+  border: none;
+  background: black;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+.review-form button:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease;
 }
 
 #contact{
@@ -323,4 +332,66 @@ footer{
   color:#555;
   display:none;
   line-height:1.6;
+}
+.hero {
+  min-height: 90vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 10%;
+  gap: 40px;
+}
+
+.hero-content {
+  max-width: 500px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-content h1 span {
+  color: #666;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.hero-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary {
+  background: black;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-outline {
+  border: 2px solid black;
+  color: black;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero-image img {
+  width: 320px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
