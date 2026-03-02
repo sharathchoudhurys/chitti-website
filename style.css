@@ -35,26 +35,12 @@ nav a:hover{
   color:#666;
 }
 
-.hero{
-  min-height:90vh;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  padding:40px;
-  flex-wrap:wrap;
-}
-
-.hero img{
-  width:280px;
-  animation: float 3s ease-in-out infinite;
-}
-
 @keyframes float{
   0%,100%{transform:translateY(0);}
   50%{transform:translateY(-12px);}
 }
 
-.hero-text{
+.hero-content{
   max-width:450px;
   animation: fadeUp 1s ease forwards;
 }
@@ -64,11 +50,11 @@ nav a:hover{
   to{opacity:1; transform:translateY(0);}
 }
 
-.hero-text h1{
+.hero-content h1{
   font-size:3.2rem;
 }
 
-.hero-text span{
+.hero-content span{
   color:#777;
 }
 
@@ -223,42 +209,6 @@ footer{
   background:#111;
   transform:scale(1.4);
 }
-.carousel{
-  width:300px;
-  overflow:hidden;
-  position:relative;
-}
-
-.carousel-track{
-  display:flex;
-  transition:0.8s cubic-bezier(.4,0,.2,1);
-}
-
-.carousel img{
-  width:300px;
-  flex-shrink:0;
-  border-radius:18px;
-}
-
-.dots{
-  display:flex;
-  justify-content:center;
-  margin-top:12px;
-}
-
-.dot{
-  height:8px;
-  width:8px;
-  background:#ccc;
-  margin:0 6px;
-  border-radius:50%;
-  transition:.3s;
-}
-
-.dot.active{
-  background:#111;
-  transform:scale(1.4);
-}
 .floating-buy{
   position:fixed;
   bottom:20px;
@@ -303,11 +253,6 @@ footer{
   transform:translateY(-6px);
   box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
-#faq{
-  padding:80px 40px;
-  text-align:center;
-}
-
 .faq-box{
   max-width:700px;
   margin:40px auto 0;
@@ -394,4 +339,5 @@ footer{
   width: 320px;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  animation: float 3s ease-in-out infinite;
 }
