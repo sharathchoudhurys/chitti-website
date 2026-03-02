@@ -40,3 +40,10 @@ document.querySelectorAll(".faq-item").forEach(item => {
     ans.style.display = ans.style.display === "block" ? "none" : "block";
   });
 });
+
+
+
+
+// Problems
+// reviews not comin to us #review form is not working which stops js execution
+// the nhkss on navigation bar when pressed shld reach out to above i.e beginning of page
