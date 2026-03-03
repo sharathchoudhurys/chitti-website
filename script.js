@@ -14,32 +14,66 @@ document.querySelectorAll("section").forEach(sec => {
   observer.observe(sec);
 });
 
-document.getElementById("reviewForm").addEventListener("submit", e => {
-  e.preventDefault();
-  alert("Thanks for your review ❤️");
-  e.target.reset();
-});
+const reviewForm = document.getElementById("reviewForm");
+// review still not working to be changed and adjusted
+if (reviewForm) {
+  reviewForm.addEventListener("submit", e => {
+    e.preventDefault();
+    alert("Thanks for your review ❤️");
+    e.target.reset();
+  });
+}
+
 const track = document.querySelector(".carousel-track");
 const dots = document.querySelectorAll(".dot");
 
 let index = 0;
 
-setInterval(() => {
-  index = (index + 1) % dots.length;
-  updateCarousel();
-}, 3500);
+if (track && dots.length > 0) {
+  setInterval(() => {
+    index = (index + 1) % dots.length;
+    updateCarousel();
+  }, 3500);
+}
 
+// updated the why chiti and why trust chitti block to move horizontally in given direction
 function updateCarousel(){
+  if (!track || dots.length === 0) {
+    return;
+  }
+
   track.style.transform = `translateX(-${index * 300}px)`;
   dots.forEach(dot => dot.classList.remove("active"));
   dots[index].classList.add("active");
 }
 document.querySelectorAll(".faq-item").forEach(item => {
   item.addEventListener("click", () => {
-    const ans = item.querySelector(".faq-answer");
-    ans.style.display = ans.style.display === "block" ? "none" : "block";
+    item.classList.toggle("active");
   });
 });
+
+function initMarquee(gridSelector){
+  const grid = document.querySelector(gridSelector);
+
+  if (!grid || grid.dataset.marqueeReady === "true") {
+    return;
+  }
+
+  const items = Array.from(grid.children);
+
+  if (items.length === 0) {
+    return;
+  }
+
+  items.forEach(item => {
+    grid.appendChild(item.cloneNode(true));
+  });
+
+  grid.dataset.marqueeReady = "true";
+}
+
+initMarquee(".feature-grid");
+initMarquee(".trust-grid");
 
 
 
