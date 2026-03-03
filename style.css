@@ -76,13 +76,16 @@ nav a:hover{
 #features{
   padding:80px 40px;
   text-align:center;
+  overflow:hidden;
 }
 
 .feature-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  display:flex;
+  flex-wrap:nowrap;
   gap:25px;
   margin-top:40px;
+  width:max-content;
+  animation:marquee-left 24s linear infinite;
 }
 
 .card{
@@ -90,6 +93,7 @@ nav a:hover{
   border:1px solid #eee;
   border-radius:16px;
   transition:.3s;
+  flex:0 0 220px;
 }
 
 .card:hover{
@@ -231,13 +235,16 @@ footer{
   padding:80px 40px;
   text-align:center;
   background:#fafafa;
+  overflow:hidden;
 }
 
 .trust-grid{
   margin-top:40px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  display:flex;
+  flex-wrap:nowrap;
   gap:25px;
+  width:max-content;
+  animation:marquee-right 24s linear infinite;
 }
 
 .trust-card{
@@ -247,6 +254,17 @@ footer{
   border:1px solid #eee;
   font-weight:500;
   transition:.3s;
+  flex:0 0 220px;
+}
+
+@keyframes marquee-left{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+
+@keyframes marquee-right{
+  from{transform:translateX(-50%);}
+  to{transform:translateX(0);}
 }
 
 .trust-card:hover{
@@ -275,8 +293,16 @@ footer{
 .faq-answer{
   margin-top:10px;
   color:#555;
-  display:none;
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:max-height .35s ease, opacity .25s ease;
   line-height:1.6;
+}
+
+.faq-item.active .faq-answer{
+  max-height:180px;
+  opacity:1;
 }
 .hero {
   min-height: 90vh;
@@ -340,4 +366,109 @@ footer{
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   animation: float 3s ease-in-out infinite;
+}
+
+@media (max-width: 768px){
+  header{
+    flex-direction:column;
+    gap:12px;
+    padding:14px 18px;
+  }
+
+  nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px 14px;
+  }
+
+  nav a{
+    margin-left:0;
+  }
+
+  .hero{
+    min-height:auto;
+    flex-direction:column;
+    text-align:center;
+    padding:42px 20px;
+    gap:26px;
+  }
+
+  .hero-content,
+  .hero-content h1,
+  .hero-content p,
+  .hero-content h2{
+    max-width:100%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-content h1{
+    font-size:2.2rem;
+  }
+
+  .hero-content p{
+    font-size:1rem;
+  }
+
+  .hero-content h2{
+    font-size:1.5rem;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .btn-primary,
+  .btn-outline{
+    width:100%;
+    max-width:260px;
+    text-align:center;
+  }
+
+  .hero-image img{
+    width:min(88vw,320px);
+  }
+
+  #features,
+  #order,
+  #trust,
+  #reviews,
+  #contact{
+    padding:56px 20px;
+  }
+
+  .order-box{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+  }
+
+  .order-box a{
+    margin:0;
+    width:100%;
+    max-width:320px;
+  }
+
+  .review-form{
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+    max-width:100%;
+  }
+
+  .review-form input,
+  .review-form textarea,
+  .review-form button{
+    width:100%;
+  }
+
+  .floating-buy{
+    right:12px;
+    left:12px;
+    bottom:12px;
+    text-align:center;
+  }
 }
